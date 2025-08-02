@@ -127,7 +127,7 @@ export const Dashboard = ({ onAddEntry, onViewEntries, onSettings }: DashboardPr
                     <div key={summary.date} className="flex items-center justify-between">
                       <div className="space-y-1">
                         <p className="text-sm font-medium">
-                          {new Date(summary.date).toLocaleDateString('pt-BR', {
+                          {new Date(summary.date + 'T00:00:00').toLocaleDateString('pt-BR', {
                             weekday: 'long',
                             day: '2-digit',
                             month: '2-digit'
