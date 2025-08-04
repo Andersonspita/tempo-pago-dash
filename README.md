@@ -1,73 +1,123 @@
-# Welcome to your Lovable project
+# Sistema de Controle de Horas - CRT Gerenciador
 
-## Project info
+## Informações do Projeto
 
 **URL**: https://lovable.dev/projects/4da6ec3a-8f11-4e2c-92db-95115475bdbf
 
-## How can I edit this code?
+## Sobre o Sistema
 
-There are several ways of editing your application.
+Este é um sistema completo para controle de horas de trabalho e gerenciamento de pagamentos, desenvolvido para facilitar o acompanhamento de tarefas diárias, cálculo de horas trabalhadas e controle de valores pagos/pendentes.
 
-**Use Lovable**
+### Funcionalidades Principais
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4da6ec3a-8f11-4e2c-92db-95115475bdbf) and start prompting.
+- ✅ **Dashboard Intuitivo**: Visão geral das estatísticas e atividades recentes
+- ✅ **Controle de Horas**: Registro de entrada, saída e cálculo automático de horas
+- ✅ **Gestão de Pagamentos**: Controle de valores pagos e pendentes
+- ✅ **Exportação de Dados**: Geração de planilhas CSV para relatórios
+- ✅ **Tema Dark/Light**: Interface adaptável com alternância de temas
+- ✅ **Armazenamento Local**: Dados persistidos no navegador
+- ✅ **Interface Responsiva**: Funciona perfeitamente em desktop e mobile
 
-Changes made via Lovable will be committed automatically to this repo.
+### Campos do Sistema
 
-**Use your preferred IDE**
+- **Data**: Data da tarefa executada
+- **Hora Inicial**: Horário de início do trabalho
+- **Hora Final**: Horário de término do trabalho
+- **Horas Trabalhadas**: Cálculo automático do tempo total
+- **Descrição**: Detalhamento da tarefa realizada
+- **Valor por Hora**: Definição do valor/hora para cálculos
+- **Status de Pagamento**: Controle se foi pago ou está pendente
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Como editar este código?
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Existem várias maneiras de editar sua aplicação.
 
-Follow these steps:
+**Usar o Lovable**
+
+Simplesmente visite o [Projeto Lovable](https://lovable.dev/projects/4da6ec3a-8f11-4e2c-92db-95115475bdbf) e comece a fazer prompts.
+
+As mudanças feitas via Lovable serão commitadas automaticamente neste repositório.
+
+**Usar seu IDE preferido**
+
+Se você quiser trabalhar localmente usando seu próprio IDE, pode clonar este repo e fazer push das mudanças. As mudanças enviadas também serão refletidas no Lovable.
+
+O único requisito é ter Node.js e npm instalados - [instale com nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+Siga estes passos:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Passo 1: Clone o repositório usando a URL Git do projeto.
+git clone <SUA_URL_GIT>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Passo 2: Navegue para o diretório do projeto.
+cd <NOME_DO_SEU_PROJETO>
 
-# Step 3: Install the necessary dependencies.
+# Passo 3: Instale as dependências necessárias.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Passo 4: Inicie o servidor de desenvolvimento com auto-reload e preview instantâneo.
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+**Editar um arquivo diretamente no GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Navegue para o(s) arquivo(s) desejado(s).
+- Clique no botão "Edit" (ícone de lápis) no canto superior direito da visualização do arquivo.
+- Faça suas alterações e commit as mudanças.
 
-**Use GitHub Codespaces**
+**Usar GitHub Codespaces**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Navegue para a página principal do seu repositório.
+- Clique no botão "Code" (botão verde) próximo ao canto superior direito.
+- Selecione a aba "Codespaces".
+- Clique em "New codespace" para iniciar um novo ambiente Codespace.
+- Edite arquivos diretamente no Codespace e faça commit e push das suas mudanças quando terminar.
 
-## What technologies are used for this project?
+## Quais tecnologias são usadas neste projeto?
 
-This project is built with:
+Este projeto foi construído com:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite** - Ferramenta de build rápida
+- **TypeScript** - JavaScript tipado para maior segurança
+- **React** - Biblioteca para interfaces de usuário
+- **shadcn-ui** - Componentes de UI modernos e acessíveis
+- **Tailwind CSS** - Framework CSS utilitário
+- **date-fns** - Biblioteca para manipulação de datas
+- **Lucide React** - Ícones SVG modernos
+- **React Hook Form** - Gerenciamento de formulários
+- **Zod** - Validação de esquemas TypeScript
 
-## How can I deploy this project?
+## Como posso fazer deploy deste projeto?
 
-Simply open [Lovable](https://lovable.dev/projects/4da6ec3a-8f11-4e2c-92db-95115475bdbf) and click on Share -> Publish.
+Simplesmente abra o [Lovable](https://lovable.dev/projects/4da6ec3a-8f11-4e2c-92db-95115475bdbf) e clique em Share -> Publish.
 
-## Can I connect a custom domain to my Lovable project?
+## Posso conectar um domínio customizado ao meu projeto Lovable?
 
-Yes, you can!
+Sim, você pode!
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Para conectar um domínio, navegue para Project > Settings > Domains e clique em Connect Domain.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Leia mais aqui: [Configurando um domínio customizado](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Estrutura do Projeto
+
+```
+src/
+├── components/          # Componentes React
+│   ├── ui/             # Componentes base do shadcn-ui
+│   ├── Dashboard.tsx   # Dashboard principal
+│   ├── TimeEntryForm.tsx # Formulário de entrada
+│   ├── TimeEntryList.tsx # Lista de registros
+│   └── Settings.tsx    # Configurações
+├── hooks/              # Hooks customizados
+│   └── useTimesheet.ts # Lógica principal do sistema
+├── types/              # Definições TypeScript
+│   └── timesheet.ts   # Tipos do sistema
+└── pages/              # Páginas da aplicação
+    └── Index.tsx      # Página principal
+```
+
+## Contribuindo
+
+Este projeto está em constante evolução. Sugestões e melhorias são sempre bem-vindas!
