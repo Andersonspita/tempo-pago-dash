@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Clock, DollarSign, Calendar, TrendingUp, Download, Settings } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useTimesheet } from "@/hooks/useTimesheet";
 
 interface DashboardProps {
@@ -38,6 +39,7 @@ export const Dashboard = ({ onAddEntry, onViewEntries, onSettings }: DashboardPr
             <p className="text-muted-foreground">Gerencie suas tarefas e pagamentos</p>
           </div>
           <div className="flex gap-3">
+            <ThemeToggle />
             <Button onClick={onSettings} variant="outline" size="sm">
               <Settings className="w-4 h-4 mr-2" />
               Configurações
