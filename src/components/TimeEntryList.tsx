@@ -107,18 +107,18 @@ export const TimeEntryList = ({ onBack, onEdit }: TimeEntryListProps) => {
   }, { totalHours: 0, totalEarnings: 0, paidEarnings: 0, unpaidEarnings: 0 });
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <div className="min-h-screen bg-background p-4 sm:p-6">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" onClick={onBack}>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-4">
+            <Button variant="ghost" size="sm" onClick={onBack} className="self-start">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Voltar
             </Button>
             <div>
-              <h1 className="text-2xl font-bold">Registros de Horas</h1>
-              <p className="text-muted-foreground">
+              <h1 className="text-xl sm:text-2xl font-bold">Registros de Horas</h1>
+              <p className="text-muted-foreground text-sm sm:text-base">
                 {filteredEntries.length} {filteredEntries.length === 1 ? 'registro' : 'registros'} encontrados
               </p>
             </div>
@@ -134,7 +134,7 @@ export const TimeEntryList = ({ onBack, onEdit }: TimeEntryListProps) => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="space-y-2">
                 <label className="text-sm font-medium">Buscar</label>
                 <div className="relative">
@@ -180,7 +180,7 @@ export const TimeEntryList = ({ onBack, onEdit }: TimeEntryListProps) => {
         </Card>
 
         {/* Summary Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Card>
             <CardContent className="p-4">
               <div className="flex items-center gap-2">
@@ -251,58 +251,67 @@ export const TimeEntryList = ({ onBack, onEdit }: TimeEntryListProps) => {
 
               return (
                 <Card key={entry.id} className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1 space-y-3">
-                        <div className="flex items-center gap-4">
-                          <div>
-                            <h3 className="font-medium text-lg">{formatDate(entry.date)}</h3>
-                            <p className="text-sm text-muted-foreground">
-                              {entry.startTime} - {entry.endTime} • {formatHours(hours)}
-                            </p>
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="space-y-4">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                        <div className="flex-1 space-y-3">
+                          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+                            <div className="flex-1">
+                              <h3 className="font-medium text-base sm:text-lg">{formatDate(entry.date)}</h3>
+                              <p className="text-sm text-muted-foreground">
+                                {entry.startTime} - {entry.endTime} • {formatHours(hours)}
+                              </p>
+                            </div>
+                            <Badge 
+                              variant={entry.isPaid ? "default" : "secondary"}
+                              className={entry.isPaid ? "bg-success text-success-foreground" : ""}
+                            >
+                              {entry.isPaid ? 'Pago' : 'Pendente'}
+                            </Badge>
                           </div>
-                          <Badge 
-                            variant={entry.isPaid ? "default" : "secondary"}
-                            className={entry.isPaid ? "bg-success text-success-foreground" : ""}
-                          >
-                            {entry.isPaid ? 'Pago' : 'Pendente'}
-                          </Badge>
-                        </div>
 
-                        <p className="text-foreground">{entry.description}</p>
+                          <p className="text-foreground text-sm sm:text-base">{entry.description}</p>
 
-                        <div className="flex items-center gap-6 text-sm">
-                          <div className="flex items-center gap-1">
-                            <DollarSign className="w-4 h-4" />
-                            <span>{formatCurrency(entry.hourlyRate || 0)}/hora</span>
-                          </div>
-                          <div className="font-medium text-primary">
-                            Total: {formatCurrency(earnings)}
+                          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6 text-sm">
+                            <div className="flex items-center gap-1">
+                              <DollarSign className="w-4 h-4" />
+                              <span>{formatCurrency(entry.hourlyRate || 0)}/hora</span>
+                            </div>
+                            <div className="font-medium text-primary">
+                              Total: {formatCurrency(earnings)}
+                            </div>
                           </div>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-2 ml-4">
+                      <div className="flex flex-wrap gap-2 pt-2 border-t sm:border-t-0 sm:pt-0">
                         <Button
                           variant="outline"
                           size="sm"
                           onClick={() => togglePaidStatus(entry.id)}
+                          className="flex-1 sm:flex-none"
                         >
-                          <CheckCircle className="w-4 h-4" />
+                          <CheckCircle className="w-4 h-4 sm:mr-2" />
+                          <span className="hidden sm:inline">
+                            {entry.isPaid ? 'Marcar Pendente' : 'Marcar Pago'}
+                          </span>
                         </Button>
                         
                         <Button
                           variant="outline"
                           size="sm"
                           onClick={() => onEdit(entry)}
+                          className="flex-1 sm:flex-none"
                         >
-                          <Edit className="w-4 h-4" />
+                          <Edit className="w-4 h-4 sm:mr-2" />
+                          <span className="hidden sm:inline">Editar</span>
                         </Button>
 
                         <AlertDialog>
                           <AlertDialogTrigger asChild>
-                            <Button variant="outline" size="sm">
-                              <Trash2 className="w-4 h-4" />
+                            <Button variant="outline" size="sm" className="flex-1 sm:flex-none">
+                              <Trash2 className="w-4 h-4 sm:mr-2" />
+                              <span className="hidden sm:inline">Excluir</span>
                             </Button>
                           </AlertDialogTrigger>
                           <AlertDialogContent>

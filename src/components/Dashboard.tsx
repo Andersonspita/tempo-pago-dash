@@ -30,26 +30,27 @@ export const Dashboard = ({ onAddEntry, onViewEntries, onSettings }: DashboardPr
   };
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <div className="min-h-screen bg-background p-4 sm:p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Controle de Horas</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Controle de Horas</h1>
             <p className="text-muted-foreground">Gerencie suas tarefas e pagamentos</p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             <ThemeToggle />
-            <Button onClick={onSettings} variant="outline" size="sm">
-              <Settings className="w-4 h-4 mr-2" />
-              Configurações
+            <Button onClick={onSettings} variant="outline" size="sm" className="flex-1 sm:flex-none">
+              <Settings className="w-4 h-4 sm:mr-2" />
+              <span className="hidden sm:inline">Configurações</span>
             </Button>
-            <Button onClick={exportToCSV} variant="outline" size="sm">
-              <Download className="w-4 h-4 mr-2" />
-              Exportar
+            <Button onClick={exportToCSV} variant="outline" size="sm" className="flex-1 sm:flex-none">
+              <Download className="w-4 h-4 sm:mr-2" />
+              <span className="hidden sm:inline">Exportar</span>
             </Button>
-            <Button onClick={onAddEntry}>
-              Novo Registro
+            <Button onClick={onAddEntry} className="flex-1 sm:flex-none">
+              <span className="sm:hidden">Novo</span>
+              <span className="hidden sm:inline">Novo Registro</span>
             </Button>
           </div>
         </div>

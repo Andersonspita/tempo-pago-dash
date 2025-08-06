@@ -101,19 +101,19 @@ export const TimeEntryForm = ({ onBack, editEntry }: TimeEntryFormProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <div className="min-h-screen bg-background p-4 sm:p-6">
       <div className="max-w-2xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" onClick={onBack}>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-4">
+          <Button variant="ghost" size="sm" onClick={onBack} className="self-start">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Voltar
           </Button>
           <div>
-            <h1 className="text-2xl font-bold">
+            <h1 className="text-xl sm:text-2xl font-bold">
               {editEntry ? 'Editar Registro' : 'Novo Registro'}
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm sm:text-base">
               {editEntry ? 'Atualize as informações do registro' : 'Adicione um novo registro de horas'}
             </p>
           </div>
@@ -128,7 +128,7 @@ export const TimeEntryForm = ({ onBack, editEntry }: TimeEntryFormProps) => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="date">Data</Label>
                   <Input
@@ -189,7 +189,7 @@ export const TimeEntryForm = ({ onBack, editEntry }: TimeEntryFormProps) => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="hourlyRate">Valor por Hora (R$)</Label>
                   <Input
@@ -231,7 +231,7 @@ export const TimeEntryForm = ({ onBack, editEntry }: TimeEntryFormProps) => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center">
                   <div className="space-y-1">
                     <p className="text-sm text-muted-foreground">Horas Trabalhadas</p>
                     <p className="text-2xl font-bold text-primary">{formatHours(calculatedHours)}</p>
@@ -250,13 +250,14 @@ export const TimeEntryForm = ({ onBack, editEntry }: TimeEntryFormProps) => {
           )}
 
           {/* Submit Buttons */}
-          <div className="flex gap-3 justify-end">
-            <Button type="button" variant="outline" onClick={onBack}>
+          <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
+            <Button type="button" variant="outline" onClick={onBack} className="order-2 sm:order-1">
               Cancelar
             </Button>
-            <Button type="submit">
+            <Button type="submit" className="order-1 sm:order-2">
               <Save className="w-4 h-4 mr-2" />
-              {editEntry ? 'Salvar Alterações' : 'Adicionar Registro'}
+              <span className="sm:hidden">{editEntry ? 'Salvar' : 'Adicionar'}</span>
+              <span className="hidden sm:inline">{editEntry ? 'Salvar Alterações' : 'Adicionar Registro'}</span>
             </Button>
           </div>
         </form>

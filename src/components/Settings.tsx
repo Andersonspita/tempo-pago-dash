@@ -134,17 +134,17 @@ export const Settings = ({ onBack }: SettingsProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <div className="min-h-screen bg-background p-4 sm:p-6">
       <div className="max-w-2xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" onClick={onBack}>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-4">
+          <Button variant="ghost" size="sm" onClick={onBack} className="self-start">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Voltar
           </Button>
           <div>
-            <h1 className="text-2xl font-bold">Configurações</h1>
-            <p className="text-muted-foreground">Gerencie as configurações do sistema</p>
+            <h1 className="text-xl sm:text-2xl font-bold">Configurações</h1>
+            <p className="text-muted-foreground text-sm sm:text-base">Gerencie as configurações do sistema</p>
           </div>
         </div>
 
@@ -192,7 +192,7 @@ export const Settings = ({ onBack }: SettingsProps) => {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <h4 className="font-medium">Exportar Dados</h4>
                 <p className="text-sm text-muted-foreground">
@@ -302,7 +302,7 @@ export const Settings = ({ onBack }: SettingsProps) => {
             <CardTitle>Informações do Sistema</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               <div>
                 <p className="font-medium">Total de Registros:</p>
                 <p className="text-muted-foreground">{entries.length}</p>
